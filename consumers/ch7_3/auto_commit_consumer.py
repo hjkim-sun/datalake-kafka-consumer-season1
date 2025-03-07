@@ -1,12 +1,11 @@
 from confluent_kafka import Consumer
-from confluent_kafka import KafkaError, KafkaException
+from confluent_kafka import KafkaException
 from consumers.base_consumer import BaseConsumer
 import pandas as pd
-import sys
 import json
-import time
 
-class ConsumeConsumer(BaseConsumer):
+
+class AutoCommitConsumer(BaseConsumer):
     def __init__(self, group_id):
         super().__init__(group_id)
         self.topics = ['apis.seouldata.rt-bicycle']
@@ -54,5 +53,5 @@ class ConsumeConsumer(BaseConsumer):
 
 
 if __name__ == '__main__':
-    consume_consumer= ConsumeConsumer('auto_commit_consumer')
-    consume_consumer.poll()
+    auto_commit_consumer = AutoCommitConsumer('auto_commit_consumer')
+    auto_commit_consumer.poll()

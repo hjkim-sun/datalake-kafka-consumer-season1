@@ -1,8 +1,7 @@
 from confluent_kafka import Consumer
-from confluent_kafka import KafkaError, KafkaException
+from confluent_kafka import KafkaException
 from consumers.base_consumer import BaseConsumer
 import pandas as pd
-import sys
 import json
 import time
 import random
